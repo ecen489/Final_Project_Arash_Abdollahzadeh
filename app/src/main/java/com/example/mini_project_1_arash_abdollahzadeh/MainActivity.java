@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     final String[] Breads = new String[3];
     final String[] Sides = new String[3];
 
+    String option;
+    String new_option;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             Foods[i] = line;
             i++;
         }
-        scan_Pastry.close();
+        scan_Food.close();
 
         i = 0;
         while (scan_Sides.hasNextLine()){
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             Sides[i] = line;
             i++;
         }
-        scan_Pastry.close();
+        scan_Sides.close();
 
         i = 0;
         while (scan_Bread.hasNextLine()){
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             Breads[i] = line;
             i++;
         }
-        scan_Pastry.close();
+        scan_Bread.close();
 
         ListView list = (ListView) findViewById(R.id.List_of_Items);
 
@@ -79,65 +81,83 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String option = parent.getItemAtPosition(position).toString();
+                option = parent.getItemAtPosition(position).toString();
 
                 Picture pic_frag = (Picture) getSupportFragmentManager().findFragmentById(R.id.pictures);
+
+                Items item_frag = (Items) getSupportFragmentManager().findFragmentById(R.id.items);
 
 
                 // Options for clicking Pastry
                 if (option.equals(Pastrys[0])){
                     pic_frag.imageView.setImageResource(R.drawable.baklava_1);
+                    item_frag.text.setText(item_frag.Pastrys[0]);
                 }
                 else if (option.equals(Pastrys[1])){
                     pic_frag.imageView.setImageResource(R.drawable.loz_1);
+                    item_frag.text.setText(item_frag.Pastrys[1]);
                 }
                 else if (option.equals(Pastrys[2])){
                     pic_frag.imageView.setImageResource(R.drawable.rice_cookie);
+                    item_frag.text.setText(item_frag.Pastrys[2]);
                 }
                 else if (option.equals(Pastrys[3])){
                     pic_frag.imageView.setImageResource(R.drawable.nan);
+                    item_frag.text.setText(item_frag.Pastrys[3]);
                 }
                 else if (option.equals(Pastrys[4])){
                     pic_frag.imageView.setImageResource(R.drawable.ghotab_1);
+                    item_frag.text.setText(item_frag.Pastrys[4]);
                 }
 
                 // For Foods
                 else if (option.equals(Foods[0])){
                     pic_frag.imageView.setImageResource(R.drawable.ghorme_1);
+                    item_frag.text.setText(item_frag.Foods[0]);
                 }
                 else if (option.equals(Foods[1])){
                     pic_frag.imageView.setImageResource(R.drawable.kebab_1);
+                    item_frag.text.setText(item_frag.Foods[1]);
                 }
                 else if (option.equals(Foods[2])){
                     pic_frag.imageView.setImageResource(R.drawable.fesenjoon_1);
+                    item_frag.text.setText(item_frag.Foods[2]);
                 }
                 else if (option.equals(Foods[3])){
                     pic_frag.imageView.setImageResource(R.drawable.jooje_1);
+                    item_frag.text.setText(item_frag.Foods[3]);
                 }
                 else if (option.equals(Foods[4])){
                     pic_frag.imageView.setImageResource(R.drawable.dolme_1);
+                    item_frag.text.setText(item_frag.Foods[4]);
                 }
 
                 // For Breads
                 else if (option.equals(Breads[0])){
                     pic_frag.imageView.setImageResource(R.drawable.barbari_1);
+                    item_frag.text.setText(item_frag.Breads[0]);
                 }
                 else if (option.equals(Breads[1])){
                     pic_frag.imageView.setImageResource(R.drawable.sangak_1);
+                    item_frag.text.setText(item_frag.Breads[1]);
                 }
                 else if (option.equals(Breads[2])){
                     pic_frag.imageView.setImageResource(R.drawable.shirmal_1);
+                    item_frag.text.setText(item_frag.Breads[2]);
                 }
 
                 // For Sides
                 else if (option.equals(Sides[0])){
                     pic_frag.imageView.setImageResource(R.drawable.mast_1);
+                    item_frag.text.setText(item_frag.Sides[0]);
                 }
                 else if (option.equals(Sides[1])){
                     pic_frag.imageView.setImageResource(R.drawable.shirazi_1);
+                    item_frag.text.setText(item_frag.Sides[1]);
                 }
                 else if (option.equals(Sides[2])){
                     pic_frag.imageView.setImageResource(R.drawable.pickels_1);
+                    item_frag.text.setText(item_frag.Sides[2]);
                 }
 
             }
@@ -164,5 +184,21 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> myAdapter_Sides = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Sides);
         ListView list = (ListView) findViewById(R.id.List_of_Items);
         list.setAdapter(myAdapter_Sides);
+    }
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        outState.putString("option", option);
+    }
+
+    public void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+        Picture pic_frag = (Picture) getSupportFragmentManager().findFragmentById(R.id.pictures);
+
+        Items item_frag = (Items) getSupportFragmentManager().findFragmentById(R.id.items);
+
+        new_option = inState.getString("option", "default");
+        pic_frag.setImage(new_option);
+
     }
 }

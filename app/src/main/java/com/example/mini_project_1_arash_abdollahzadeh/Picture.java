@@ -22,8 +22,7 @@ public class Picture extends Fragment {
     final String[] Breads = new String[3];
     final String[] Sides = new String[3];
 
-
-
+    String option;
 //    private OnFragmentInteractionListener mListener;
 
     ImageView imageView;
@@ -39,17 +38,115 @@ public class Picture extends Fragment {
         View view = inflater.inflate(R.layout.fragment_picture, container, false);
         imageView = view.findViewById(R.id.picture);
 
+        Scanner scan_Pastry = new Scanner(getResources().openRawResource(R.raw.pastry));
+        Scanner scan_Food = new Scanner(getResources().openRawResource(R.raw.food));
+        Scanner scan_Sides = new Scanner(getResources().openRawResource(R.raw.sides));
+        Scanner scan_Bread = new Scanner(getResources().openRawResource(R.raw.bread));
 
+        int i = 0;
+        while (scan_Pastry.hasNextLine()){
+            String line=scan_Pastry.nextLine();
+            Pastrys[i] = line;
+            i++;
+        }
+        scan_Pastry.close();
+
+        i = 0;
+        while (scan_Food.hasNextLine()){
+            String line=scan_Food.nextLine();
+            Foods[i] = line;
+            i++;
+        }
+        scan_Pastry.close();
+
+        i = 0;
+        while (scan_Sides.hasNextLine()){
+            String line=scan_Sides.nextLine();
+            Sides[i] = line;
+            i++;
+        }
+        scan_Pastry.close();
+
+        i = 0;
+        while (scan_Bread.hasNextLine()){
+            String line=scan_Bread.nextLine();
+            Breads[i] = line;
+            i++;
+        }
+        scan_Pastry.close();
 
         return view;
     }
 
     void setImage(String pic_options){
 
+        option = pic_options;
+
         if (pic_options.equals(Pastrys[0])){
-            imageView.setImageResource(R.drawable.baklava_2);
+            imageView.setImageResource(R.drawable.baklava_1);
+        }
+        else if (pic_options.equals(Pastrys[1])){
+            imageView.setImageResource(R.drawable.loz_1);
+        }
+        else if (pic_options.equals(Pastrys[2])){
+            imageView.setImageResource(R.drawable.rice_cookie);
+        }
+        else if (pic_options.equals(Pastrys[3])){
+            imageView.setImageResource(R.drawable.nan);
+        }
+        else if (pic_options.equals(Pastrys[4])){
+            imageView.setImageResource(R.drawable.ghotab_1);
         }
 
+        // For Foods
+        else if (pic_options.equals(Foods[0])){
+            imageView.setImageResource(R.drawable.ghorme_1);
+        }
+        else if (pic_options.equals(Foods[1])){
+            imageView.setImageResource(R.drawable.kebab_1);
+        }
+        else if (pic_options.equals(Foods[2])){
+            imageView.setImageResource(R.drawable.fesenjoon_1);
+        }
+        else if (pic_options.equals(Foods[3])){
+            imageView.setImageResource(R.drawable.jooje_1);
+        }
+        else if (pic_options.equals(Foods[4])){
+            imageView.setImageResource(R.drawable.dolme_1);
+        }
+
+        // For Breads
+        else if (pic_options.equals(Breads[0])){
+            imageView.setImageResource(R.drawable.barbari_1);
+        }
+        else if (pic_options.equals(Breads[1])){
+            imageView.setImageResource(R.drawable.sangak_1);
+        }
+        else if (pic_options.equals(Breads[2])){
+            imageView.setImageResource(R.drawable.shirmal_1);
+        }
+
+        // For Sides
+        else if (pic_options.equals(Sides[0])){
+            imageView.setImageResource(R.drawable.mast_1);
+        }
+        else if (pic_options.equals(Sides[1])){
+            imageView.setImageResource(R.drawable.shirazi_1);
+        }
+        else if (pic_options.equals(Sides[2])){
+            imageView.setImageResource(R.drawable.pickels_1);
+        }
+
+
+    }
+
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("option", option);
+    }
+
+    public void onRestoreInstanceState(Bundle inState) {
+        setImage(inState.getString(option,"Loz Badam"));
     }
 
 
