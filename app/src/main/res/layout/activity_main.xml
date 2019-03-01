@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/Pastry"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="Pastry_clicked"
+            android:text="Pastry" />
+
+        <Button
+            android:id="@+id/Bread"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="Bread_clicked"
+            android:text="Bread" />
+
+        <Button
+            android:id="@+id/Food"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="Food_clicked"
+            android:text="Food" />
+
+        <Button
+            android:id="@+id/Sides"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="Sides_clicked"
+            android:text="Sides" />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/List_of_Items">
+
+    </ListView>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/pictures"
+        android:name="com.example.mini_project_1_arash_abdollahzadeh.Picture"
+        tools:layout="@layout/fragment_picture">
+    </fragment>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/items"
+        android:name="com.example.mini_project_1_arash_abdollahzadeh.Items"
+        tools:layout="@layout/fragment_items">
+    </fragment>
+
+</LinearLayout>
