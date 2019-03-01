@@ -1,11 +1,13 @@
 package com.example.mini_project_1_arash_abdollahzadeh;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.Scanner;
@@ -72,66 +74,70 @@ public class MainActivity extends AppCompatActivity {
         // Getting the buttons
         list.setAdapter(myAdapter_Pastrys);
 
+
         // For interaction
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String option = parent.getItemAtPosition(position).toString();
 
+                Picture pic_frag = (Picture) getSupportFragmentManager().findFragmentById(R.id.pictures);
+
+
                 // Options for clicking Pastry
                 if (option.equals(Pastrys[0])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.baklava_1);
                 }
                 else if (option.equals(Pastrys[1])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.loz_1);
                 }
                 else if (option.equals(Pastrys[2])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.rice_cookie);
                 }
                 else if (option.equals(Pastrys[3])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.nan);
                 }
                 else if (option.equals(Pastrys[4])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.ghotab_1);
                 }
 
                 // For Foods
                 else if (option.equals(Foods[0])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.ghorme_1);
                 }
                 else if (option.equals(Foods[1])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.kebab_1);
                 }
                 else if (option.equals(Foods[2])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.fesenjoon_1);
                 }
                 else if (option.equals(Foods[3])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.jooje_1);
                 }
                 else if (option.equals(Foods[4])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.dolme_1);
                 }
 
                 // For Breads
                 else if (option.equals(Breads[0])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.barbari_1);
                 }
                 else if (option.equals(Breads[1])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.sangak_1);
                 }
                 else if (option.equals(Breads[2])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.shirmal_1);
                 }
 
                 // For Sides
                 else if (option.equals(Sides[0])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.mast_1);
                 }
                 else if (option.equals(Sides[1])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.shirazi_1);
                 }
                 else if (option.equals(Sides[2])){
-                    String typ = new String();
+                    pic_frag.imageView.setImageResource(R.drawable.pickels_1);
                 }
 
             }
