@@ -13,6 +13,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -221,6 +222,8 @@ public class MainActivity extends AppCompatActivity {
 
         outState.putString("option", option);
         outState.putString("item_option", (String) txt.getText());
+
+        outState.putSerializable("object", thisCart);
     }
 
     public void onRestoreInstanceState(Bundle inState) {
@@ -232,6 +235,8 @@ public class MainActivity extends AppCompatActivity {
         option = inState.getString("option", "default");
         pic_frag.setImage(option);
         item_frag.text.setText(inState.getString("item_option"));
+
+        thisCart = (Cart) inState.getSerializable("object");
     }
     public void Buy(View view){
         if (! (option == null)) {
@@ -255,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-class Cart{
+class Cart implements Serializable {
 
     String name;
 
