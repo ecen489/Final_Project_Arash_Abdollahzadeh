@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:layout_gravity="center">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
         <Button
             android:id="@+id/Pastry"
@@ -43,26 +46,35 @@
     </LinearLayout>
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
         android:id="@+id/List_of_Items">
 
     </ListView>
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/pictures"
-        android:name="com.example.mini_project_1_arash_abdollahzadeh.Picture"
-        tools:layout="@layout/fragment_picture">
-    </fragment>
-
-    <fragment
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/items"
-        android:name="com.example.mini_project_1_arash_abdollahzadeh.Items"
-        tools:layout="@layout/fragment_items">
-    </fragment>
+        android:orientation="vertical">
+
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/pictures"
+            android:name="com.example.mini_project_1_arash_abdollahzadeh.Picture"
+            tools:layout="@layout/fragment_picture">
+        </fragment>
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/items"
+            android:name="com.example.mini_project_1_arash_abdollahzadeh.Items"
+            tools:layout="@layout/fragment_items">
+        </fragment>
+
+    </LinearLayout>
+
 
 </LinearLayout>
