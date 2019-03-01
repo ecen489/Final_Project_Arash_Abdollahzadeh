@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="top">
 
         <Button
             android:id="@+id/Pastry"
@@ -42,6 +42,19 @@
             android:onClick="Sides_clicked"
             android:text="Sides" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:onClick="Buy"
+            android:text="Add to Cart"
+            android:id="@+id/Buy_hor"/>
+
+        <Button
+            android:id="@+id/ViewCart"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:onClick="ViewCart"
+            android:text="View Cart" />
 
     </LinearLayout>
 
@@ -68,7 +81,7 @@
 
         <fragment
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:id="@+id/items"
             android:name="com.example.mini_project_1_arash_abdollahzadeh.Items"
             tools:layout="@layout/fragment_items">

@@ -59,10 +59,23 @@
 
     <fragment
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/items"
         android:name="com.example.mini_project_1_arash_abdollahzadeh.Items"
         tools:layout="@layout/fragment_items">
     </fragment>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Cart"
+        android:onClick="Buy"
+        android:id="@+id/Buy_ver"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Cart"
+        android:onClick="ViewCart"
+        android:id="@+id/ViewCart"/>
 
 </LinearLayout>
